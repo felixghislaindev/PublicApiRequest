@@ -33,6 +33,10 @@ header h1 {
     color: rgba(50, 50, 50, 0.9);
     margin-top: 35px;
 }
+h1 a{
+    color: rgba(50, 50, 50, 0.9);
+    text-decoration: none;
+}
 
 .search-input {
     padding: 0.4rem 1rem;
