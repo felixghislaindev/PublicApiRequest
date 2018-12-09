@@ -67,10 +67,13 @@ const url ='https://randomuser.me/api/?results=12&nat=us';
                 let cardIndex = el.dataset.index
                 indexNum = parseInt(cardIndex);
                 let prevcard;
-                if(indexNum === 0 || indexNum === 11){
-                    prevcard = cardsArray[indexNum ]
+                // check if previous
+                if(indexNum === 0){
+                    prevcard = cardsArray[indexNum]
+                    console.log(indexNum)
                 } else{
-                    prevcard = cardsArray[indexNum + 1]
+                    prevcard = cardsArray[indexNum - 1]
+                    console.log(indexNum)
                 }
                 const prvName =prevcard.children[1].children[0].innerHTML;
                 
@@ -94,7 +97,7 @@ const url ='https://randomuser.me/api/?results=12&nat=us';
                                 <hr>
                                 <p class="modal-text">${employeePhone}</p>
 
-                                <p class="modal-text">${employee.location.postcode} ${employee.location.state} , ${employee.location.state}, OR 97204</p>
+                                <p class="modal-text">${employee.location.street} ${employee.location.city} , ${employee.location.state} ${employee.location.postcode}</p>
                                 <p class="modal-text">Birthday: ${date}</p>
                             </div>
                             <div class="modal-btn-container">
@@ -102,6 +105,16 @@ const url ='https://randomuser.me/api/?results=12&nat=us';
                                     <button type="button" id="modal-next" class="modal-next btn">Next</button>
                                 </div>
                         </div>`)
+                        $('#modal-prev').click((e)=>{
+                            previous(e)
+                            
+                        })
+                        // Selecting next button
+                        $('#modal-next').click((e)=>{
+                            
+                            next(e);
+                        })
+                     
                     } 
                 })
                  
@@ -132,10 +145,13 @@ const url ='https://randomuser.me/api/?results=12&nat=us';
                 let cardIndex = el.dataset.index
                 indexNum = parseInt(cardIndex);
                 let prevcard;
-                if(indexNum === 0 || indexNum === 11){
-                    prevcard = cardsArray[indexNum ]
+                // checks if end
+                if(indexNum === 11){
+                    prevcard = cardsArray[indexNum]
+                    console.log(indexNum)
                 } else{
                     prevcard = cardsArray[indexNum + 1]
+                    console.log(indexNum)
                 }
                 
                 
@@ -161,7 +177,7 @@ const url ='https://randomuser.me/api/?results=12&nat=us';
                                 <hr>
                                 <p class="modal-text">${employeePhone}</p>
 
-                                <p class="modal-text">${employee.location.postcode} ${employee.location.state} , ${employee.location.state}, OR 97204</p>
+                                <p class="modal-text">${employee.location.street} ${employee.location.city} , ${employee.location.state} ${employee.location.postcode}</p>
                                 <p class="modal-text">Birthday: ${date}</p>
                             </div>
                             <div class="modal-btn-container">
@@ -169,6 +185,17 @@ const url ='https://randomuser.me/api/?results=12&nat=us';
                                     <button type="button" id="modal-next" class="modal-next btn">Next</button>
                                 </div>
                         </div>`)
+                          // Selecting previous button
+        $('#modal-prev').click((e)=>{
+            previous(e)
+            
+        })
+        // Selecting next button
+        $('#modal-next').click((e)=>{
+            
+            next(e);
+        })
+                        
                     } 
                 })
                  
@@ -211,7 +238,7 @@ const url ='https://randomuser.me/api/?results=12&nat=us';
                 <p class="modal-text cap">${employee.location.city} </p>
                 <hr>
                 <p class="modal-text">${employeePhone}</p>
-                <p class="modal-text">${employee.location.postcode} ${employee.location.state} , ${employee.location.state}, OR 97204</p>
+                <p class="modal-text">${employee.location.street} ${employee.location.city} , ${employee.location.state} ${employee.location.postcode}</p>
                 <p class="modal-text">Birthday: ${date}</p>
             </div>
             <div class="modal-btn-container">
@@ -279,7 +306,7 @@ const url ='https://randomuser.me/api/?results=12&nat=us';
                         <p class="modal-text cap">${employee.location.city} </p>
                         <hr>
                         <p class="modal-text">${employeePhone}</p>
-                        <p class="modal-text">${employee.location.postcode} ${employee.location.state}. , ${employee.location.state}, OR 97204</p>
+                        <p class="modal-text">${employee.location.street} ${employee.location.city} , ${employee.location.state} ${employee.location.postcode}</p>
                         <p class="modal-text">Birthday: ${date}</p>
                     </div>
                     
